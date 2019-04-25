@@ -1,0 +1,27 @@
+{
+  "name": "g-sheets-data-manager",
+  "version": "1.0.0",
+  "description": "Manage data from google sheets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morewebdesignrocks/GoogleSheetsData.git"
+  },
+  "keywords": [
+    "Google",
+    "Sheets"
+  ],
+  "author": "Andres Robayo and Mauricio Robayo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morewebdesignrocks/GoogleSheetsData/issues"
+  },
+  "homepage": "https://github.com/morewebdesignrocks/GoogleSheetsData#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
