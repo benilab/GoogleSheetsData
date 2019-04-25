@@ -3,6 +3,7 @@
   <head>
     <title>Google Sheets API Quickstart</title>
     <meta charset="utf-8" />
+    <!-- <script src="gconnection.js" type="text/javascript"></script> -->
   </head>
   <body>
     <p>Google Sheets API Quickstart</p>
@@ -75,6 +76,7 @@
           authorizeButton.style.display = 'none'
           signoutButton.style.display = 'block'
           listMajors()
+          consoleloglistMajors()
         } else {
           authorizeButton.style.display = 'block'
           signoutButton.style.display = 'none'
@@ -93,6 +95,35 @@
        */
       function handleSignoutClick(event) {
         gapi.auth2.getAuthInstance().signOut()
+      }
+
+      /**
+       * Console log content from googlesheet
+       */
+      function consoleloglistMajors() {
+        gapi.client.sheets.spreadsheets.values
+          .get({
+            spreadsheetId: '1hBfH9vTXqV8CobzBlSHaKBec39t0gB5cyRMPhXUU0YY',
+            range: 'Sheet1!A1:A5',
+          })
+          .then(
+            function(response) {
+              var range = response.result
+              if (range.values.length > 0) {
+                /*appendPre('Name, Major:')*/
+                for (i = 0; i < range.values.length; i++) {
+                  var row = range.values[i]
+                  // Print columns A and E, which correspond to indices 0 and 4.
+                  console.log(row[0] + ', ' + row[4])
+                }
+              } else {
+                console.log('No data found.')
+              }
+            },
+            function(response) {
+              console.log('Error: ' + response.result.error.message)
+            }
+          )
       }
 
       /**
