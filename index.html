@@ -3,7 +3,6 @@
   <head>
     <title>Google Sheets API Quickstart</title>
     <meta charset="utf-8" />
-    <script src="gconnection.js" type="text/javascript"></script>
   </head>
   <body>
     <p>Google Sheets API Quickstart</p>
@@ -17,8 +16,8 @@
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
       var CLIENT_ID =
-        '933014663888-9hf81boiqu4cmm0v36btohfr7rlvn9kc.apps.googleusercontent.com'
-      var API_KEY = 'AIzaSyDDn9V69B0F39JfagK5xGO11FFUbSjIFUw'
+        '933014663888-k04njkr0jgf5972ukjijskcjosdrfn66.apps.googleusercontent.com'
+      var API_KEY = 'AIzaSyCEEpAONi3owBNaWKGkjt-Q18B8S516RV4'
 
       // Array of API discovery doc URLs for APIs used by the quickstart
       var DISCOVERY_DOCS = [
@@ -31,6 +30,9 @@
 
       var authorizeButton = document.getElementById('authorize_button')
       var signoutButton = document.getElementById('signout_button')
+
+      var spreadsheetId = '1hBfH9vTXqV8CobzBlSHaKBec39t0gB5cyRMPhXUU0YY'
+      var range = 'Sheet1!A1:B4'
 
       /**
        *  On load, called to load the auth2 library and API client library.
@@ -75,8 +77,7 @@
         if (isSignedIn) {
           authorizeButton.style.display = 'none'
           signoutButton.style.display = 'block'
-          listMajors()
-          consoleloglistMajors()
+          checkFields(spreadsheetId, range)
         } else {
           authorizeButton.style.display = 'block'
           signoutButton.style.display = 'none'
@@ -105,5 +106,7 @@
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()"
     ></script>
+
+    <script src="gconnection.js" type="text/javascript"></script>
   </body>
 </html>
